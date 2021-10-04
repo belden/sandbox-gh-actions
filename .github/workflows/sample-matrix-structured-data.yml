@@ -10,11 +10,14 @@ jobs:
       matrix: 
         run:
           - name: 'run1'
+            sleep: 5
           - name: 'run2'
+            sleep: 10
           - name: 'run3'
+            sleep: 15
 
     steps:
     - run: echo Run ${{ matrix.run.name }}
     - run: date
-    - run: sleep 5 # Sleep so that we can see a difference in timestamp on the last run
+    - run: sleep ${{ matrix.run.sleep }} # Sleep so that we can see a difference in timestamp on the last run
     - run: date
