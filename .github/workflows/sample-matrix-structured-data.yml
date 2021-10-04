@@ -8,10 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: 
-        run: ['run1', 'run2', 'run3']
+        run:
+          - name: 'run1'
+          - name: 'run2'
+          - name: 'run3'
 
     steps:
-    - run: echo Run ${{ matrix.run }}
+    - run: echo Run ${{ matrix.run.name }}
     - run: date
     - run: sleep 5 # Sleep so that we can see a difference in timestamp on the last run
     - run: date
